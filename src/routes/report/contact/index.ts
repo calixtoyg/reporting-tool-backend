@@ -1,7 +1,7 @@
-import { NowRequestHandler } from "fastify-now";
-import { ContactRequest } from "../../../models/ContactRequest";
+import { NowRequestHandler } from 'fastify-now';
+import { ContactRequest } from '../../../models/ContactRequest';
 
-import { convertCSVToListingContact, getListingContactsByMonths } from "../../../lib/contactService";
+import { convertCSVToListingContact, getListingContactsByMonths } from '../../../lib/contactService';
 
 export const POST: NowRequestHandler<{ Body: ContactRequest }> = async (req, rep) => {
   const listingContact = await convertCSVToListingContact(req.body);

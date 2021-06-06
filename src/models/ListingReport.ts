@@ -1,5 +1,5 @@
-import { MakeDistribution } from "./MakeDistribution";
-import { DealerDistribution } from "./DealerDistribution";
+import { MakeDistribution } from './MakeDistribution';
+import { DealerDistribution } from './DealerDistribution';
 
 export class ListingReport {
   distribution: MakeDistribution[];
