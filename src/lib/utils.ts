@@ -1,7 +1,7 @@
 import { Listing } from '../models/Listing';
 
 export const getFormattedPrice = (average: number) =>
-  `${process.env.CURRENCY} ${new Intl.NumberFormat(process.env.LOCALE, { maximumFractionDigits: 0 }).format(average)},-`;
+  `${process.env.CURRENCY || '€'} ${new Intl.NumberFormat(process.env.LOCALE, { maximumFractionDigits: 0 }).format(average)},-`;
 
 export const getAveragePrice = (value: Listing[]) =>
   value

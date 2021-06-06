@@ -19,9 +19,9 @@ const PostReportSchema = {
   summary: 'Creates a report for product managers from a CSV',
   body: {
     type: 'object',
-    required: ['csv'],
+    required: ['listing'],
     properties: {
-      file: { type: 'object' },
+      listing: { type: 'object' },
     },
   },
   consumes: ['multipart/form-data'],
