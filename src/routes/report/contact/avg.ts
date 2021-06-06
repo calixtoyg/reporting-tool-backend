@@ -1,7 +1,7 @@
 import { NowRequestHandler } from 'fastify-now';
-import { ContactRequest } from '../../../models/ContactRequest';
-import { convertCSVToListingContact, fulfillListingInfo, getAvgPriceOfMostContactedWithOrderList, orderByContactedTimes } from '../../../lib/contactService';
-import { getFormattedPrice } from '../../../lib/utils';
+import { ContactRequest } from '@models/ContactRequest';
+import { convertCSVToListingContact, fulfillListingInfo, getAvgPriceOfMostContactedWithOrderList, orderByContactedTimes } from '@lib/contactService';
+import { getFormattedPrice } from '@lib/utils';
 
 export const POST: NowRequestHandler<{ Body: ContactRequest; Querystring: { percentage: number } }> = async (req, rep) => {
   const listingContact = await convertCSVToListingContact(req.body);

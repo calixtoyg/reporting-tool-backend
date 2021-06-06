@@ -1,9 +1,9 @@
-import { Listing } from '../models/Listing';
+import { Listing } from '@models/Listing';
 import _ from 'lodash';
-import { MakeDistribution } from '../models/MakeDistribution';
-import { getAveragePrice, getFormattedPrice } from './utils';
-import { DealerDistribution } from '../models/DealerDistribution';
-import { ListingRequest } from '../models/ListingRequest';
+import { MakeDistribution } from '@models/MakeDistribution';
+import { getAveragePrice, getFormattedPrice } from '@lib/utils';
+import { DealerDistribution } from '@models/DealerDistribution';
+import { ListingRequest } from '@models/ListingRequest';
 import csvtojson from 'csvtojson';
 
 export const getPercentageDistributionOfMakers = (listings: Listing[]) => {

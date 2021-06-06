@@ -1,5 +1,5 @@
 import { NowRequestHandler } from 'fastify-now';
-import { ContactRequest } from '../../../models/ContactRequest';
+import { ContactRequest } from '@models/ContactRequest';
 
 import { convertCSVToListingContact, getListingContactsByMonths } from '../../../lib/contactService';
 

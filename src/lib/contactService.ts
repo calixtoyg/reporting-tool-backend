@@ -1,12 +1,12 @@
-import { ContactRequest } from '../models/ContactRequest';
-import { ListingContact } from '../models/ListingContact';
+import { ContactRequest } from '@models/ContactRequest';
+import { ListingContact } from '@models/ListingContact';
 import csvtojson from 'csvtojson';
-import { getAveragePrice } from './utils';
-import { Listing } from '../models/Listing';
-import { Contact } from '../models/Contact';
+import { getAveragePrice } from '@lib/utils';
+import { Listing } from '@models/Listing';
+import { Contact } from '@models/Contact';
 import _ from 'lodash';
-import { ListingContactReport } from '../models/ListingContactReport';
-import { convertCSVToListing } from './listingService';
+import { ListingContactReport } from '@models/ListingContactReport';
+import { convertCSVToListing } from '@lib/listingService';
 
 export const contactDate = (item) => {
   return new Date(Number(item));

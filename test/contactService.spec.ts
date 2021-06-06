@@ -159,5 +159,4 @@ describe('Contact Service functions tests', () => {
     expect(audiListings[1].month).toBe(new Date().getMonth() + 1);
     done();
   });
-
 });

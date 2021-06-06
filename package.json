@@ -6,8 +6,8 @@
   "scripts": {
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "build": "tsc && node resolve-module-alias.js",
-    "start": "node build",
+    "build": "tsc",
+    "start": "node -r tsconfig-paths/register -r ts-node/register ./build",
     "dev": "nodemon | pino-pretty --colorize",
     "pretest": "npm run build",
     "test": "cross-env NODE_ENV=test jest --config .jest.json --coverage",
@@ -49,6 +49,7 @@
     "ts-jest": "26.1.0",
     "ts-loader": "^6.2.1",
     "ts-node": "^8.6.2",
+    "tsconfig-paths": "^3.9.0",
     "typescript": "^3.9.9"
   },
   "dependencies": {
@@ -58,8 +59,10 @@
     "fastify": "^3.9.2",
     "fastify-multipart": "^4.0.6",
     "fastify-now": "^2.3.1",
+    "fastify-swagger": "^4.7.0",
     "fluent-json-schema": "^2.0.3",
     "http-errors": "^1.8.0",
-    "lodash": "^4.17.21"
+    "lodash": "^4.17.21",
+    "module-alias": "^2.2.2"
   }
 }

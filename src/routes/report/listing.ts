@@ -1,7 +1,7 @@
 import { NowRequestHandler } from 'fastify-now';
-import { ListingRequest } from '../../models/ListingRequest';
-import { ListingReport } from '../../models/ListingReport';
-import { convertCSVToListing, getPercentageDistributionOfDealers, getPercentageDistributionOfMakers } from '../../lib/listingService';
+import { ListingRequest } from '@models/ListingRequest';
+import { ListingReport } from '@models/ListingReport';
+import { convertCSVToListing, getPercentageDistributionOfDealers, getPercentageDistributionOfMakers } from '@lib/listingService';
 
 export const POST: NowRequestHandler<{ Body: ListingRequest }> = async (req, rep) => {
   const listings = await convertCSVToListing(req.body);

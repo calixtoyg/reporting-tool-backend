@@ -3,9 +3,9 @@ import path from 'path';
 import fastify from 'fastify';
 import now from 'fastify-now';
 import fastifyMultipart from 'fastify-multipart';
+import fastifySwagger from 'fastify-swagger';
 
-// Load env vars
-import loadConfig from '@lib/config';
+import { loadConfig, swaggerConfig } from '@lib/config';
 
 loadConfig();
 
@@ -15,6 +15,8 @@ export async function createServer() {
       level: process.env.LOG_LEVEL,
     },
   });
+
+  server.register(fastifySwagger, swaggerConfig());
 
   server.register(fastifyMultipart, { attachFieldsToBody: true });
   server.register(now, {

@@ -9,6 +9,10 @@
   "transform": {
     "^.+\\.(t|j)s$": "ts-jest"
   },
+  "moduleNameMapper": {
+    "@lib/(.*)": "<rootDir>/src/lib/$1",
+    "@models/(.*)": "<rootDir>/src/models/$1"
+  },
   "collectCoverageFrom": [
     "!build/**/**/mocks/*.js",
     "src/**/*.ts",
