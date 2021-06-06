@@ -1,5 +1,5 @@
-import { ContactDetails } from './ContactDetails';
-import { Contact } from './Contact';
+import { ContactDetails } from "./ContactDetails";
+import { Contact } from "./Contact";
 
 export class Listing {
   id: string;

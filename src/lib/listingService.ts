@@ -1,8 +1,10 @@
-import { Listing } from '../models/Listing';
-import _ from 'lodash';
-import { MakeDistribution } from '../models/MakeDistribution';
-import { getAveragePrice, getFormattedPrice } from './utils';
-import { DealerDistribution } from '../models/DealerDistribution';
+import { Listing } from "../models/Listing";
+import _ from "lodash";
+import { MakeDistribution } from "../models/MakeDistribution";
+import { getAveragePrice, getFormattedPrice } from "./utils";
+import { DealerDistribution } from "../models/DealerDistribution";
+import { ListingRequest } from "../models/ListingRequest";
+import csvtojson from "csvtojson";
 
 export const getPercentageDistributionOfMakers = (listings: Listing[]) => {
   console.log('Getting percentage distribution by makers');
@@ -30,4 +32,10 @@ export const getPercentageDistributionOfDealers = (listings: Listing[]) => {
     } as DealerDistribution;
   });
   return _.orderBy(makeDistributions, 'rawAvg', 'desc');
+};
+
+export const convertCSVToListing = async (listingRequest: ListingRequest): Promise<Listing[]> => {
+  const csvString = (await listingRequest.listing.toBuffer()).toString('utf8');
+  const json: any[] = await csvtojson().fromString(csvString);
+  return json as Listing[];
 };

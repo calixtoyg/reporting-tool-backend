@@ -1,4 +1,4 @@
-import { Listing } from './Listing';
+import { Listing } from "./Listing";
 
 export class ListingContactReport extends Listing {
   contactedTimes: number;

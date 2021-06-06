@@ -85,7 +85,7 @@ function getContact(listingBuffer, contactBuffer) {
   };
 }
 
-describe('Contact Service tests functions', () => {
+describe('Contact Service functions tests', () => {
   let listingBuffer;
   let contactBuffer;
 

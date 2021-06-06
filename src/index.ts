@@ -1,11 +1,12 @@
-import path from 'path';
+import path from "path";
 
-import fastify from 'fastify';
-import now from 'fastify-now';
-import fastifyMultipart from 'fastify-multipart';
+import fastify from "fastify";
+import now from "fastify-now";
+import fastifyMultipart from "fastify-multipart";
 
 // Load env vars
-import loadConfig from '@lib/config';
+import loadConfig from "@lib/config";
+
 loadConfig();
 
 export async function createServer() {

@@ -1,5 +1,5 @@
-import { NowRequestHandler } from 'fastify-now';
-import S from 'fluent-json-schema';
+import { NowRequestHandler } from "fastify-now";
+import S from "fluent-json-schema";
 
 export const GET: NowRequestHandler = async function () {
   return { hello: 'worl gasgasgd gasgsga' };

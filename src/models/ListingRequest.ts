@@ -1,7 +1,7 @@
-import { Stream } from 'stream';
+import { Stream } from "stream";
 
 export class ListingRequest {
-  csv: {
+  listing: {
     file: Stream;
     toBuffer(): Buffer;
   };

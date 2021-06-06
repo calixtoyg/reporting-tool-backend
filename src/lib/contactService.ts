@@ -1,11 +1,12 @@
-import { ContactRequest } from '../models/ContactRequest';
-import { ListingContact } from '../models/ListingContact';
-import csvtojson from 'csvtojson';
-import { convertCSVToListing, getAveragePrice } from "./utils";
-import { Listing } from '../models/Listing';
-import { Contact } from '../models/Contact';
-import _ from 'lodash';
-import { ListingContactReport } from '../models/ListingContactReport';
+import { ContactRequest } from "../models/ContactRequest";
+import { ListingContact } from "../models/ListingContact";
+import csvtojson from "csvtojson";
+import { getAveragePrice } from "./utils";
+import { Listing } from "../models/Listing";
+import { Contact } from "../models/Contact";
+import _ from "lodash";
+import { ListingContactReport } from "../models/ListingContactReport";
+import { convertCSVToListing } from "./listingService";
 
 export const contactDate = (item) => {
   return new Date(Number(item));
@@ -22,7 +23,7 @@ export const convertCSVToListingContact = async (contact: ContactRequest): Promi
   }).fromString(contactString);
   return {
     contacts,
-    listings: await convertCSVToListing({ csv: contact.listing }),
+    listings: await convertCSVToListing({ listing: contact.listing }),
   };
 };
 

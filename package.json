@@ -10,8 +10,8 @@
     "start": "node build",
     "dev": "nodemon | pino-pretty --colorize",
     "pretest": "npm run build",
-    "test": "NODE_ENV=test jest --config .jest.json --coverage",
-    "test:watch": "NODE_ENV=test jest --config .jest.json --watch --verbose"
+    "test": "cross-env NODE_ENV=test jest --config .jest.json --coverage",
+    "test:watch": "cross-env NODE_ENV=test jest --config .jest.json --watch --verbose"
   },
   "repository": {
     "type": "git",
