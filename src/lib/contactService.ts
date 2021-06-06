@@ -1,7 +1,7 @@
 import { ContactRequest } from '../models/ContactRequest';
 import { ListingContact } from '../models/ListingContact';
 import csvtojson from 'csvtojson';
-import { convertCSVToListing, getAveragePrice } from '@lib/utils';
+import { convertCSVToListing, getAveragePrice } from "./utils";
 import { Listing } from '../models/Listing';
 import { Contact } from '../models/Contact';
 import _ from 'lodash';
@@ -46,7 +46,7 @@ export function orderByContactedTimes(listingsWithContacts: Listing[]) {
 
 export function getAvgPriceOfMostContactedWithOrderList(listingsWithContacts: Listing[], percentage: number) {
   console.log(`Getting AVG price of ${percentage}% most contacted listings`);
-  const slicedListByPercentage = listingsWithContacts.slice(0, Math.floor((percentage / 100) * listingsWithContacts.length));
+  const slicedListByPercentage = listingsWithContacts.slice(0, Math.round((percentage / 100) * listingsWithContacts.length));
   return getAveragePrice(slicedListByPercentage);
 }
 
