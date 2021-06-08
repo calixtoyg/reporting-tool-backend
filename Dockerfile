@@ -3,10 +3,13 @@ FROM       node:14-alpine
 WORKDIR    /usr/reporting-tool-backend
 
 # Copy and install production packages
-COPY       build build/
 COPY       package*.json ./
 COPY       production.env ./
-RUN        npm ci --production
+COPY       tsconfig.json ./
+COPY       tsconfig.paths.json ./
+COPY       src ./src
+RUN        npm install
+RUN        npm run build
 
 # Non root user
 USER       node
