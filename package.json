@@ -6,7 +6,8 @@
   "scripts": {
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "build": "tsc -p .",
+    "build": "tsc",
+    "build:prod": "tsc -p .",
     "start": "node -r tsconfig-paths/register -r ts-node/register ./build | pino-pretty --colorize",
     "dev": "nodemon | pino-pretty --colorize",
     "pretest": "npm run build",

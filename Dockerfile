@@ -9,7 +9,7 @@ COPY       tsconfig.json ./
 COPY       tsconfig.paths.json ./
 COPY       src ./src
 RUN        npm install
-RUN        npm run build
+RUN        npm run build:prod
 
 # Non root user
 USER       node
