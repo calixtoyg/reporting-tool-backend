@@ -144,19 +144,16 @@ describe('Contact Service functions tests', () => {
   it('getListingContactsByMonths - should get a list of listings with the amount of times it was contacted by each month', async (done) => {
     const listingAndContacts = getListingContactForTest();
     const listingsContactsByMonths = getListingContactsByMonths(listingAndContacts);
-    expect(listingsContactsByMonths.length).toBe(4);
-    expect(listingsContactsByMonths[0].contactedTimes).toBe(4);
-    expect(listingsContactsByMonths[0].month).toBe(new Date().getMonth());
-    expect(listingsContactsByMonths[0].year).toBe(new Date().getFullYear());
-    expect(listingsContactsByMonths[0].id).toBe('2');
-    expect(listingsContactsByMonths[1].contactedTimes).toBe(2);
-    expect(listingsContactsByMonths[2].contactedTimes).toBe(1);
+    expect(listingsContactsByMonths.length).toBe(2);
+    expect(listingsContactsByMonths[0][0].contactedTimes).toBe(4);
+    expect(listingsContactsByMonths[0][0].month).toBe(new Date().getMonth());
+    expect(listingsContactsByMonths[0][0].year).toBe(new Date().getFullYear());
+    expect(listingsContactsByMonths[0][0].id).toBe('2');
+    expect(listingsContactsByMonths[0][1].contactedTimes).toBe(2);
+    expect(listingsContactsByMonths[0][2].contactedTimes).toBe(1);
     //Audi should be separated into 2 contact periods in the first month it was contacted 2 times and the second month 1 time.
-    const audiListings = listingsContactsByMonths.filter((v) => v.make === 'Audi');
-    expect(audiListings[0].contactedTimes).toBe(2);
-    expect(audiListings[0].month).toBe(new Date().getMonth());
-    expect(audiListings[1].contactedTimes).toBe(1);
-    expect(audiListings[1].month).toBe(new Date().getMonth() + 1);
+    expect(listingsContactsByMonths[1][0].contactedTimes).toBe(1);
+    expect(listingsContactsByMonths[1][0].month).toBe(new Date().getMonth() + 1);
     done();
   });
 });

@@ -37,6 +37,8 @@ export function swaggerConfig() {
         docExpansion: 'full',
         deepLinking: false,
       },
+      consumes: ['multipart/form-data'],
+      produces: ['application/json'],
       staticCSP: true,
       transformStaticCSP: (header) => header,
       exposeRoute: true,

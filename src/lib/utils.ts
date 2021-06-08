@@ -1,7 +1,10 @@
 import { Listing } from '@models/Listing';
 
-export const getFormattedPrice = (average: number) =>
-  `${process.env.CURRENCY || '€'} ${new Intl.NumberFormat(process.env.LOCALE, { maximumFractionDigits: 0 }).format(average)},-`;
+const numberFormat = new Intl.NumberFormat(process.env.LOCALE, { maximumFractionDigits: 0 });
+
+export const getFormattedPrice = (average: number) => `${process.env.CURRENCY || '€'} ${numberFormat.format(average)},-`;
+
+export const getFormattedMileage = (mileage: number) => `${numberFormat.format(mileage)} KM`;
 
 export const getAveragePrice = (value: Listing[]) =>
   value

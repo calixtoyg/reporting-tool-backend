@@ -1,7 +1,7 @@
 import { ContactRequest } from '@models/ContactRequest';
 import { ListingContact } from '@models/ListingContact';
 import csvtojson from 'csvtojson';
-import { getAveragePrice } from '@lib/utils';
+import { getAveragePrice, getFormattedMileage, getFormattedPrice } from '@lib/utils';
 import { Listing } from '@models/Listing';
 import { Contact } from '@models/Contact';
 import _ from 'lodash';
@@ -51,7 +51,7 @@ export function getAvgPriceOfMostContactedWithOrderList(listingsWithContacts: Li
   return getAveragePrice(slicedListByPercentage);
 }
 
-export function getListingContactsByMonths(listingContact: ListingContact): ListingContactReport[] {
+export function getListingContactsByMonths(listingContact: ListingContact): ListingContactReport[][] {
   console.log('Getting most contacted listings separated by month');
   const contactsOrderByDate = _.sortBy(listingContact.contacts, 'contactDate', 'asc');
   const contactsWithDate = contactsOrderByDate.map((value) => {
@@ -74,8 +74,10 @@ export function getListingContactsByMonths(listingContact: ListingContact): List
         year: firstContact.year,
         month: firstContact.month,
         ...listing,
+        price: getFormattedPrice(Number(listing.price)),
+        mileage: getFormattedMileage(Number(listing.mileage)),
       } as ListingContactReport;
     });
   });
-  return listingWithContactedInformation.map((v) => _.orderBy(v, 'contactedTimes', 'desc')).flatMap((v) => v);
+  return listingWithContactedInformation.map((v) => _.orderBy(v, 'contactedTimes', 'desc'));
 }

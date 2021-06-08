@@ -7,6 +7,8 @@ import fastifySwagger from 'fastify-swagger';
 
 import { loadConfig, swaggerConfig } from '@lib/config';
 
+import fastifyCors from 'fastify-cors';
+
 loadConfig();
 
 export async function createServer() {
@@ -16,7 +18,9 @@ export async function createServer() {
     },
   });
 
+  // TODO swagger is not really working
   server.register(fastifySwagger, swaggerConfig());
+  server.register(fastifyCors, { origin: true });
 
   server.register(fastifyMultipart, { attachFieldsToBody: true });
   server.register(now, {
@@ -30,7 +34,7 @@ export async function createServer() {
 export async function startServer() {
   process.on('unhandledRejection', (err) => {
     console.error(err);
-    process.exit(1);
+    // process.exit(1);
   });
 
   const server = await createServer();

@@ -1,6 +1,6 @@
 FROM       node:14-alpine
 
-WORKDIR    /usr/your-project-name
+WORKDIR    /usr/reporting-tool-backend
 
 # Copy and install production packages
 COPY       build build/
