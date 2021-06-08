@@ -49,12 +49,12 @@ describe('utils - utils functions tests', function () {
 
   it('getFormattedPrice - should get price formatted', function () {
     const formattedPrice = getFormattedPrice(2000);
-    expect(formattedPrice).toStrictEqual('€ 2.000,-');
+    expect(formattedPrice).toEqual('€ 2.000,-');
   });
 
   it('getFormattedMileage - should get mileage formatted', function () {
     const formattedPrice = getFormattedMileage(2000);
-    expect(formattedPrice).toStrictEqual('2.000 KM');
+    expect(formattedPrice).toEqual('2.000 KM');
   });
 
   it('getAveragePrice - should get average price of listing list', function () {
