@@ -1,6 +1,6 @@
 import { Listing } from '@models/Listing';
 
-const numberFormat = new Intl.NumberFormat(process.env.LOCALE, { maximumFractionDigits: 0 });
+const numberFormat = new Intl.NumberFormat(process.env.LOCALE || 'de-DE', { maximumFractionDigits: 0 });
 
 export const getFormattedPrice = (average: number) => `${process.env.CURRENCY || '€'} ${numberFormat.format(average)},-`;
 

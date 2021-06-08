@@ -11,7 +11,7 @@
     "start": "node -r tsconfig-paths/register -r ts-node/register ./build | pino-pretty --colorize",
     "dev": "nodemon | pino-pretty --colorize",
     "pretest": "npm run build",
-    "test": "cross-env NODE_ENV=test jest --config .jest.json --coverage",
+    "test": "cross-env NODE_ENV=test LOCALE=de-DE jest --config .jest.json --coverage",
     "test:watch": "cross-env NODE_ENV=test jest --config .jest.json --watch --verbose"
   },
   "repository": {
